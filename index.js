@@ -2,8 +2,8 @@
 var jobs = document.getElementsByClassName("job")
 
 document.getElementById("menuLanguage").addEventListener("click",toggleLanguage)
-document.getElementById("menuPrint").addEventListener("click",printPDF)
-document.getElementById("menuReset").addEventListener("click",resetStorage)
+document.getElementById("menuEdit").addEventListener("click",toggleEdit)
+document.getElementById("menuReset").addEventListener("click",()=>{resetStorage(false)})
 Array.from(jobs).forEach((job) => {
     if(job.id != ""){
         job.addEventListener("click", jobClick)
@@ -15,20 +15,20 @@ resetStorage(true)
 // lib
 
 function jobClick(e){
-    let job = findParentByType(e,"job")
-    if(findParentByType(e,"details")){
-        console.log("is detail")
-        disableDetails(job)
-    } else {
-        console.log("is title/place")
-        if (isHidden(job)){
-            enableJob(job)
+    if(localStorage.getItem("editMode")=="true"){
+        let job = findParentByType(e,"job")
+        if(findParentByType(e,"details")){
+            toggleDetails(job)
         } else {
-            disableJob(job)
+            if (isHidden(job)){
+                enableJob(job)
+            } else {
+                disableJob(job)
+            }
         }
+        updateDOM()
+        console.log(job)
     }
-    updateDOM()
-    console.log(job)
 };
 
 function isHidden(e){
@@ -41,15 +41,14 @@ function isHidden(e){
     }
 };
 
-function resetStorage(init = true){
-
-    if(init){
-        localStorage.setItem("language", "english")
-    } else {
+function resetStorage(init = false){
+    if(!init){
+        console.log("reset")
+        localStorage.clear();
         sessionStorage.clear();
     }
-
-    if(localStorage.getItem("language") !="english" && localStorage.getItem("language") != "icelandic"){
+    localStorage.setItem("editMode",false)
+    if (localStorage.getItem("language") != "icelandic" && localStorage.getItem("language") != "english"){
         localStorage.setItem("language", "english")
     }
 
@@ -89,6 +88,14 @@ function disableJob(job){
     sessionStorage.setItem(job.id, false)
 }
 
+function toggleDetails(job){
+    if(sessionStorage.getItem(job.id+"-details")=="true"){
+        disableDetails(job)
+    } else {
+        enableDetails(job)
+    }
+}
+
 function enableDetails(job){
     sessionStorage.setItem(job.id+"-details", true)
 }
@@ -105,37 +112,94 @@ function toggleLanguage(){
         localStorage.setItem("language", "english")
         document.getElementById("menuLanguage").innerHTML="IS"
     }
-    console.log(localStorage.getItem("language"))
+    updateDOM()
 }
 
 function updateDOM(){
+    // Language toggle
+    if(localStorage.getItem("language") == "icelandic"){
+        Array.from(document.getElementsByClassName("english")).forEach((e) => {
+            console.log(e)
+            e.style.display="none"
+        })
+        Array.from(document.getElementsByClassName("icelandic")).forEach((e) => {
+            e.style.display=""
+        })
+    } else {
+        Array.from(document.getElementsByClassName("icelandic")).forEach((e) => {
+            e.style.display="none"
+        })
+        Array.from(document.getElementsByClassName("english")).forEach((e) => {
+            e.style.display=""
+        })
+    }
     for (const [key, value] of Object.entries(sessionStorage)) {
+        // Detail toggle
         if(key.includes("-details")){
             let job = document.getElementById(key.split("-details")[0])
             Array.from(job.children).forEach((child) => {
-                if(child.className.includes("details")){
-                    if(value == "false"){
-                        child.style.display="none"
-                    } else {
-                        child.style.display=""
+                    if(child.className.includes("details")){
+                        if(
+                            value == "true" && (
+                                (localStorage.getItem("language") == "icelandic") && child.className.includes("icelandic") ||
+                                (localStorage.getItem("language") == "english") && child.className.includes("english")
+                                )
+                            ){
+                            console.log(child)
+                            child.style.display=""
+                            child.style.opacity="1"
+                        } else {
+                            console.log(child)
+                            if(
+                                localStorage.getItem("editMode")=="true" && (
+                                    (localStorage.getItem("language") == "icelandic") && child.className.includes("icelandic") ||
+                                    (localStorage.getItem("language") == "english") && child.className.includes("english")
+                                )
+                            ){
+                                child.style.display=""
+                                child.style.opacity="0.5"
+                            } else {
+                                child.style.display="none"
+                            }
+                        }
                     }
-                }
             })
+        // Job toggle
         } else if(key.includes("job-")){
             let job = document.getElementById(key)
-            Array.from(job.children).forEach((child) => {
-                if(value == "false"){
-                    job.style.opacity = "0.5"
-                } else {
-                    job.style.opacity = "1"
-                }
-            })
+            if(localStorage.getItem("editMode")=="true"){
+                Array.from(job.children).forEach(() => {
+                    job.style.display = ""
+                    if(value == "false"){
+                        job.style.opacity = "0.5"
+                    } else {
+                        job.style.opacity = "1"
+                    }
+                })
+            } else {
+                Array.from(job.children).forEach(() => {
+                    if(value == "false"){
+                        job.style.display = "none"
+                    } else {
+                        job.style.display = ""
+                        job.style.opacity = "1"
+                    }
+                })
+            }
         }
     }
+    
 }
 
-function printPDF(){
-    console.log("PRINTPDF")
+function toggleEdit(){
+    if (localStorage.getItem("editMode")=="true"){
+        localStorage.setItem("editMode",false)
+        document.getElementById("menuEdit").innerHTML="Edit"
+    } else {
+        localStorage.setItem("editMode",true)
+        document.getElementById("menuEdit").innerHTML="Edit Off"
+    }
+    updateDOM()
 }
 
 console.log(jobs)

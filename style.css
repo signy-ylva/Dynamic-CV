@@ -111,7 +111,7 @@ li {
 .left-column {
     display:flex;
     justify-content: right;
-    min-width: 15ch;
+    min-width: 13ch;
 }
 
 .section-title {
@@ -124,8 +124,4 @@ li {
 
 .job {
     margin-bottom:1rem;
-}
-
-.icelandic { 
-    display:none;
 }
