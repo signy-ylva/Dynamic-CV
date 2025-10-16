@@ -79,6 +79,11 @@ li {
     overflow: visible;
 }
 
+.menuitem:hover {
+    border-radius: 50%;
+    box-shadow: inset -2rem -2rem 3rem -3rem rgb(190, 190, 190);
+}
+
 .cv {
     margin-top: 0;
     padding-bottom: 25.4px;
@@ -100,7 +105,7 @@ li {
 
 
 .separator{
-    background:black;
+    box-shadow: inset -2px -2px 100px 100px black;
     flex-shrink:0;
     width: 2px;
     margin-left:2rem;
@@ -131,10 +136,6 @@ svg {
     overflow:visible;
 }
 
-.menuitem:hover {
-    border-radius: 50%;
-    background-color: rgb(158, 158, 158);
-}
 
 @media print{
     @page {
@@ -162,14 +163,5 @@ svg {
         background-color: white;
         align-self: none;
         box-shadow: none;
-    }
-    .separator{
-        background:black;
-        flex-shrink:0;
-        width: auto;
-        height: auto;
-        margin-left:2rem;
-        margin-right:2rem;
-        overflow:visible;
     }
 }
