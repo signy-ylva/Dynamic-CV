@@ -58,6 +58,12 @@ li {
     font-size: 1rem;
 }
 
+a { 
+    max-height: 3rem;
+    color: inherit;
+    text-decoration: inherit;
+}
+
 .menubar {
     position:absolute;
     right:1rem;

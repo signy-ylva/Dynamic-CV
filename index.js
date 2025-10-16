@@ -59,7 +59,7 @@ function resetStorage(init = false){
         }
         document.getElementById("menuEdit").innerHTML=editIcon
         document.getElementById("menuReset").innerHTML=resetIcon
-        document.getElementById("menuGit").innerHTML=gitIcon
+        document.getElementById("menuGit").innerHTML='<a href="https://github.com/signy-ylva/Dynamic-CV">'+gitIcon+'</a>'
     } else {
         console.log("reset")
         localStorage.clear();
@@ -157,8 +157,6 @@ function updateDOM(){
         })
     }
     for (const [key, value] of Object.entries(sessionStorage)) {
-        // add/remove ::after content
-
         // Detail toggle
         if(key.includes("-details")){
             let job = document.getElementById(key.split("-details")[0])
