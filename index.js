@@ -157,6 +157,8 @@ function updateDOM(){
         })
     }
     for (const [key, value] of Object.entries(sessionStorage)) {
+        // add/remove ::after content
+
         // Detail toggle
         if(key.includes("-details")){
             let job = document.getElementById(key.split("-details")[0])
@@ -168,11 +170,9 @@ function updateDOM(){
                                 (localStorage.getItem("language") == "english") && child.className.includes("english")
                                 )
                             ){
-                            console.log(child)
                             child.style.display=""
                             child.style.opacity="1"
                         } else {
-                            console.log(child)
                             if(
                                 localStorage.getItem("editMode")=="true" && (
                                     (localStorage.getItem("language") == "icelandic") && child.className.includes("icelandic") ||
@@ -190,20 +190,34 @@ function updateDOM(){
         // Job toggle
         } else if(key.includes("job-")){
             let job = document.getElementById(key)
+            console.log(job)
             if(localStorage.getItem("editMode")=="true"){
-                Array.from(job.children).forEach(() => {
+                Array.from(job.children).forEach((child) => {
                     job.style.display = ""
+                    console.log(child.classList.contains("jobtitle"))
                     if(value == "false"){
+                        if(child.classList.contains("jobtitle")){
+                            child.classList.add("editShow")
+                            child.classList.remove("editHide")
+                        }
                         job.style.opacity = "0.5"
                     } else {
+                        if(child.classList.contains("jobtitle")){
+                            child.classList.remove("editShow")
+                            child.classList.add("editHide")
+                        }
                         job.style.opacity = "1"
                     }
                 })
             } else {
-                Array.from(job.children).forEach(() => {
+                Array.from(job.children).forEach((child) => {
                     if(value == "false"){
+                        child.classList.remove("editHide")
+                        child.classList.remove("editShow")
                         job.style.display = "none"
                     } else {
+                        child.classList.remove("editHide")
+                        child.classList.remove("editShow")
                         job.style.display = ""
                         job.style.opacity = "1"
                     }

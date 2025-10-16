@@ -130,12 +130,19 @@ li {
     margin-bottom:1rem;
 }
 
+.editShow::after {
+    content:" [+]"
+}
+
+.editHide::after {
+    content:" [-]"
+}
+
 svg {
     max-height: 3rem;
     max-width: 3rem;
     overflow:visible;
 }
-
 
 @media print{
     @page {
