@@ -24,7 +24,7 @@ h1.section-title {
 
 h1.title {
     text-align: right;
-    margin-bottom:1rem;
+    margin-bottom:0;
 }
 
 h2 {
@@ -60,21 +60,23 @@ li {
 
 .menubar {
     position:absolute;
-    right:0;
+    right:1rem;
     display:flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: right;
+    flex-direction: row;
     margin: 0;
     color:black;
 }
 
 .menuitem {
+    display:flex;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-left:1rem;
     font-size: 2rem;
     min-height: 3rem;
-    min-width: 6rem;
-    line-height: 4rem;
-    object-fit: contain;
+    min-width: 3rem;
+    overflow: visible;
 }
 
 .cv {
@@ -124,6 +126,50 @@ li {
 }
 
 svg {
-    max-height: 4rem;
-    max-width: 4rem;
+    max-height: 3rem;
+    max-width: 3rem;
+    overflow:visible;
+}
+
+.menuitem:hover {
+    border-radius: 50%;
+    background-color: rgb(158, 158, 158);
+}
+
+@media print{
+    @page {
+        size:A4 portrait;
+        margin:0;
+    }
+    html {
+        font-size: 14px;
+        background-color: white;
+    }
+    body {
+        height: 100%;
+        margin:0;
+        padding:0 0 0 0;
+        display:flex;
+        flex-direction: column;
+    }
+    .menubar {
+        display:none;
+    }
+    .cv {
+        margin-top: auto;
+        padding-bottom: auto;
+        width: auto;
+        background-color: white;
+        align-self: none;
+        box-shadow: none;
+    }
+    .separator{
+        background:black;
+        flex-shrink:0;
+        width: auto;
+        height: auto;
+        margin-left:2rem;
+        margin-right:2rem;
+        overflow:visible;
+    }
 }
