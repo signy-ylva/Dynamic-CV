@@ -7,7 +7,7 @@ html {
 body {
     height: 100%;
     margin:0;
-    padding:2rem 0 0 0;
+    padding:auto;
     display:flex;
     flex-direction: column;
 }
@@ -69,8 +69,9 @@ a {
     right:1rem;
     display:flex;
     flex-direction: row;
+    align-content: right;
     margin: 0;
-    color:black;
+    color:rgb(0, 0, 0);
 }
 
 .menuitem {
@@ -91,7 +92,7 @@ a {
 }
 
 .cv {
-    margin-top: 0;
+    margin-top: 2rem;
     padding-bottom: 25.4px;
     width: 100ch;
     background-color: white;
@@ -148,6 +149,98 @@ svg {
     max-height: 3rem;
     max-width: 3rem;
     overflow:visible;
+}
+
+@media screen and (width > 100ch) and (width <= 1200px) {
+    .menubar {
+        position: static;
+        justify-content: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    .cv {
+        margin-top: auto;
+    }
+}
+
+@media screen and (width <= 100ch){
+    html {
+        background-color: white;
+    }
+    body {
+        padding:0;
+    }
+
+    h1.title {
+        text-align: center;
+    }
+
+    h3.subtitle {
+        text-align: center;
+    }
+
+    ul {
+        margin-top: 0.5rem;
+    }
+
+    .cv {
+        margin-top: 0;
+        padding-bottom: 0;
+        width: auto;
+        background-color: white;
+        align-self: center;
+        box-shadow: none;
+    }
+
+    .menubar {
+        position: static;
+        justify-content: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    .separator{
+        box-shadow: inset -2px -2px 100px 100px black;
+        flex-shrink:0;
+        width: auto;
+        height:2px;
+        margin: 1rem 4rem 0.5rem 4rem;
+    }
+
+    .section {
+        display:flex;
+        flex-direction: column;
+        margin:1rem;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    
+    .left-column {
+        display:flex;
+        justify-content: center;
+        /* min-width: 13ch;*/
+    }
+
+
+    .right-column {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .jobtitle {
+        margin-top: 2rem;
+    }
+    .place {
+        margin:auto
+    }
+    
+    .details {
+        text-align: left;
+    }
 }
 
 @media print{
