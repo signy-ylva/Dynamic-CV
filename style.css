@@ -1,273 +1,471 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    background-color: grey;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --primary-color: #3772FF;
+    --secondary-color: #F7B32B;
+    --bg-color: #F4F4F6;
+    --text-color: #22223B;
+    --card-bg: #FFFFFF;
+    --border-color: #D7DBEA;
+    --shadow: 0 5px 15px rgba(34,34,59,0.08);
+}
+
+[data-theme="dark"], body.dark-mode {
+    --primary-color: #00DFA2;
+    --secondary-color: #3772FF;
+    --bg-color: #181924;
+    --text-color: #F4F4F6;
+    --card-bg: #232336;
+    --border-color: #3772FF;
+    --shadow: 0 5px 15px rgba(0,223,162,0.12);
+}
+
 
 body {
-    height: 100%;
-    margin:0;
-    padding:auto;
-    display:flex;
-    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-color);
+    transition: all 0.3s ease;
 }
 
-h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin:0;
-}
-h1.section-title {
-    font-size: 1.3rem;
-    color: #253652;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
 }
 
-h1.title {
-    text-align: right;
-    margin-bottom:0;
-}
-
-h2 {
-    font-size: 1.1rem;
-    margin:0;
-}
-
-h2.jobtitle {
-    color: #26428b;
-}
-
-h3 {
-    font-size: 1rem;
-    margin:0;
-}
-h3.subtitle {
-    font-weight: 100;
-    text-align: right;
-    margin-bottom: 2rem;
-}
-
-h3.place {
-    color: grey;
-}
-
-ul {
-    margin-top:1rem;
-}
-
-li {
-    font-size: 1rem;
-}
-
-a { 
-    max-height: 3rem;
-    color: inherit;
-    text-decoration: inherit;
-}
-
-.menubar {
-    position:absolute;
-    right:1rem;
-    display:flex;
-    flex-direction: row;
-    align-content: right;
-    margin: 0;
-    color:rgb(0, 0, 0);
-}
-
-.menuitem {
-    display:flex;
-    padding: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    margin-left:1rem;
-    font-size: 2rem;
-    min-height: 3rem;
-    min-width: 3rem;
-    overflow: visible;
-}
-
-.menuitem:hover {
-    border-radius: 50%;
-    box-shadow: inset -2rem -2rem 3rem -3rem rgb(190, 190, 190);
-}
-
-.cv {
-    margin-top: 2rem;
-    padding-bottom: 25.4px;
-    width: 100ch;
-    background-color: white;
-    align-self: center;
-    box-shadow: 5px 5px 5px #555;
-}
-
-.cv-title {
-    margin: 25.4px 25.4px 0 25.4px;
-}
-
-.section {
-    margin: 0 25.4px 0 25.4px;
+/* Theme and Language Toggles */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
     display: flex;
-    margin-top:1rem;
+    gap: 10px;
 }
 
-
-.separator{
-    box-shadow: inset -2px -2px 100px 100px black;
-    flex-shrink:0;
-    width: 2px;
-    margin-left:2rem;
-    margin-right:2rem;
+.toggle-btn {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
-.left-column {
-    display:flex;
-    justify-content: right;
-    min-width: 13ch;
+.toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.section-title {
-    text-align: right;
+.toggle-icon {
+    font-size: 1.2rem;
 }
 
-.right-column {
-    text-align: left;
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 30px;
 }
 
-.job {
-    margin-bottom:1rem;
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
 }
 
-.editShow::after {
-    content:" [+]"
+.hero .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-weight: 400;
 }
 
-.editHide::after {
-    content:" [-]"
+.hero p {
+    margin: 15px 0;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
-svg {
-    max-height: 3rem;
-    max-width: 3rem;
-    overflow:visible;
+/* Sections */
+.section {
+    background: var(--card-bg);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
-@media screen and (width > 100ch) and (width <= 1200px) {
-    .menubar {
-        position: static;
-        justify-content: center;
-        margin: auto;
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+/* Professional Summary */
+.summary {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Experience Timeline */
+.timeline {
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 3px solid var(--primary-color);
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item h3 {
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.location-date {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Achievements List and Bullet Styling */
+.achievements {
+    list-style: none;
+    padding-left: 1.5em;
+    margin-left: 0;
+}
+
+.achievements li {
+    margin-bottom: 12px;
+    padding-left: 1em;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.achievements li:before {
+    content: "▸";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Skills Section */
+.skills ul, .training ul, .references ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills li, .training li, .references li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.skills li:last-child, .training li:last-child, .references li:last-child {
+    border-bottom: none;
+}
+
+.skills li:nth-child(1) {
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Training Section */
+.training li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.training li:last-child {
+    border-bottom: none;
+}
+
+/* References Section */
+.references li {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    border-bottom: none;
+}
+
+.references strong {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 10px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        gap: 0;
         width: 100%;
     }
 
-    .cv {
-        margin-top: auto;
-    }
-}
-
-@media screen and (width <= 100ch){
-    html {
-        background-color: white;
-    }
-    body {
-        padding:0;
+    .toggle-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 
-    h1.title {
-        text-align: center;
+    .toggle-btn:first-child {
+        margin-right: auto;
     }
 
-    h3.subtitle {
-        text-align: center;
+    .toggle-btn:last-child {
+        margin-left: auto;
     }
 
-    ul {
-        margin-top: 0.5rem;
-    }
-
-    .cv {
-        margin-top: 0;
-        padding-bottom: 0;
-        width: auto;
-        background-color: white;
-        align-self: center;
-        box-shadow: none;
-    }
-
-    .menubar {
-        position: static;
-        justify-content: center;
-        margin: auto;
-        width: 100%;
-    }
-
-    .separator{
-        box-shadow: inset -2px -2px 100px 100px black;
-        flex-shrink:0;
-        width: auto;
-        height:2px;
-        margin: 1rem 4rem 0.5rem 4rem;
+    .section, .hero {
+        margin-top: 70px;
     }
 
     .section {
-        display:flex;
-        flex-direction: column;
-        margin:1rem;
+        padding: 30px 20px;
     }
 
-    .section-title {
-        text-align: center;
+    .hero {
+        padding: 40px 20px;
     }
 
-    
-    .left-column {
-        display:flex;
-        justify-content: center;
-        /* min-width: 13ch;*/
+    .hero h1 {
+        font-size: 2rem;
     }
 
-
-    .right-column {
-        text-align: center;
-        margin-bottom: 3rem;
+    .hero .subtitle {
+        font-size: 1.1rem;
     }
 
-    .jobtitle {
-        margin-top: 2rem;
+    .section h2 {
+        font-size: 1.5rem;
     }
-    .place {
-        margin:auto
-    }
-    
-    .details {
-        text-align: left;
+
+    .timeline-item {
+        padding-left: 15px;
+        margin-left: 10px;
     }
 }
 
-@media print{
-    @page {
-        size:A4 portrait;
-        margin:0;
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
     }
-    html {
-        font-size: 14px;
-        background-color: white;
+
+    .theme-toggle {
+        padding: 0 10px;
+        top: 5px;
     }
+
+    .toggle-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding: 30px 15px;
+        margin-bottom: 20px;
+        margin-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 25px 15px;
+        margin-bottom: 20px;
+        margin-top: 60px;
+    }
+
+    .section h2 {
+        font-size: 1.3rem;
+        padding-left: 10px;
+    }
+
+    .summary {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .timeline-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .achievements li {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .toggle-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .toggle-btn:first-child .toggle-text {
+        display: none;
+    }
+
+    .toggle-btn:last-child {
+        min-width: 60px;
+    }
+
+    .hero, .section {
+        margin-top: 55px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.hero a .ri-github-fill {
+    font-size: 2rem;
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .hero a .ri-github-fill {
+        font-size: 1.5rem;  /* Mobile pe thoda chota */
+    }
+}
+
+/* Print Styles - CV Optimization */
+@media print {
+
+    /* Hide unnecessary elements */
+    .theme-toggle,
+    .hero a .ri-github-fill {
+        display: none !important;
+    }
+
+    /* Reset colors for printing */
+    :root,
+    [data-theme="dark"],
+    body.dark-mode {
+        --bg-color: white !important;
+        --text-color: black !important;
+        --card-bg: white !important;
+        --border-color: #ddd !important;
+        --shadow: none !important;
+    }
+
+    /* Base print styles */
     body {
-        height: 100%;
-        margin:0;
-        padding:0 0 0 0;
-        display:flex;
-        flex-direction: column;
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
     }
-    .menubar {
-        display:none;
+
+    /* Remove backgrounds and shadows */
+    .hero {
+        background: white !important;
+        color: black !important;
+        border: 2px solid black;
     }
-    .cv {
-        margin-top: auto;
-        padding-bottom: auto;
-        width: auto;
-        background-color: white;
-        align-self: none;
-        box-shadow: none;
+
+    .section {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+
+    /* Ensure good contrast */
+    .section h2 {
+        color: black !important;
+        border-left-color: black !important;
+    }
+
+    .timeline-item {
+        border-left-color: black !important;
+    }
+
+    .achievements li:before {
+        color: black !important;
+    }
+
+    /* Links - show URLs */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* Page breaks control */
+    .section {
+        page-break-inside: avoid;
+    }
+
+    h2 {
+        page-break-after: avoid;
+    }
+
+    /* Margins for printing */
+    @page {
+        margin: 0.5in;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
     }
 }

@@ -1,163 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Signý Ylva Árnadóttir</title>
-    <link rel="stylesheet" media="screen" href="style.css" />
-    <link rel="stylesheet" media="print" href="style.css" />
-  </head>
-  <body>
-    <div id="menubar" class="menubar">
-      <div id="menuGit" class="menuitem giticon"><a href="https://github.com/signy-ylva/Dynamic-CV">GIT</a></div>
-      <div id="menuEdit" class="menuitem editicon">Edit</div>
-      <div id="menuReset" class="menuitem reseticon">Reset</div>
-      <div id="menuLanguage" class="menuitem languageicon" onclick="">EN</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Signý Ylva Árnadóttir - Dynamic CV</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<div class="container">
+    <!-- Theme and Language Toggle -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="toggle-btn" aria-label="Toggle Dark/Light Mode">
+            <span class="toggle-icon">🌙</span>
+            <span class="toggle-text">Dark Mode</span>
+        </button>
+        <button id="langToggle" class="toggle-btn" aria-label="Toggle Language">IS / EN</button>
     </div>
-    <div id="cv" class="cv">
-      <div class="cv-title">
-        <div id="title">
-          <h1 class="title">
-            Signý Ylva Árnadóttir
-          </h1>
-          <h3 class="subtitle">
-            107 Reykjavík | T: +354 848 2969 | E: signy.ylva@gmail.com
-          </h3>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>
+            <span class="lang-en">Signý Ylva Árnadóttir</span>
+            <span class="lang-is" style="display:none;">Signý Ylva Árnadóttir</span>
+        </h1>
+        <div class="subtitle">
+            <span class="lang-en">Chief Technical Officer</span>
+            <span class="lang-is" style="display:none;">Aðal Tæknistjóri</span>
         </div>
-      </div>
-      <div class="cv-body">
-        <div id="experience" class="section">
-          <div class="left-column">
-            <h1 class="section-title english">Experience</h1>
-            <h1 class="section-title icelandic">Reynsla</h1>
-          </div>
-          <div class="separator"></div>
-        <div class="right-column">
-            <div id="job-catecut" class="job">
-              <h2 class="jobtitle">Chief Technical Officer, Catecut</h2>
-              <h3 class="place">Reykjavík, 2022 - 2024</h3>
-              <div class="details english">
-                <ul>
-                  <li>Developed new features and functionalities for existing Django backend, managed all AWS infrastructure and code repositories, and performed any other technical tasks.</li>
-                  <li>Reviewed and refactored the code base, documented critical processes, and optimized core query execution times by up to 90%.</li>
-                  <li>Performed security reviews of AWS infrastructure, changing processes and use of credentials to better reflect industry best practices.</li>
-                  <li>Automated common maintenance tasks on the backend and in AWS.</li>
-                  <li>Integrated a custom deep neural network AI developed by the Icelandic Institute for Intelligent Machines (IIIM) into our backend systems.</li>
-                  <li>Oversaw development by an offshore team of a new mobile app using our backend, and managed publication to both Apple App Store and Google Play.</li>
+        <p>
+            <span class="lang-en">107 Reykjavík | Phone: +354 848 2969 | Email: signy.ylva@gmail.com</span>
+            <span class="lang-is" style="display:none;">107 Reykjavík | Sími: +354 848 2969 | Tölvupóstur: signy.ylva@gmail.com</span>
+        </p>
+        <a href="https://signy-ylva.github.io/Dynamic-CV/"><i class="ri-github-fill"></i></a>
+
+
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="section professional-summary">
+        <h2>
+            <span class="lang-en">Professional Summary</span>
+            <span class="lang-is" style="display:none;">Starfsferilssammantekt</span>
+        </h2>
+        <div class="summary">
+        <span class="lang-en">
+          A skilled Full Stack Developer and technical leader with experience in backend development, cloud infrastructure management, and AI integration. Proven ability to optimize performance, automate tasks, and strengthen security. Adept at leading teams, managing projects, and delivering cross-platform applications with technologies like Django, .NET, React, and AWS.
+        </span>
+            <span class="lang-is" style="display:none;">
+          Sérfræðingur í Full Stack þróun og tæknilegur leiðtogi með reynslu af bakendaþróun, skýjainnviðum og gervigreindarinnleiðingu. Sannar færni í að hámarka afköst, sjálfvirkni og styrkja öryggi. Hefur reynslu af teymisstjórn, verkefnastjórnun og afhendingu margra vettvanga með tækni eins og Django, .NET, React og AWS.
+        </span>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience">
+        <h2>
+            <span class="lang-en">Experience</span>
+            <span class="lang-is" style="display:none;">Reynsla</span>
+        </h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Chief Technical Officer, Catecut</span>
+                    <span class="lang-is" style="display:none;">Forstjóri tækni, Catecut</span>
+                </h3>
+                <p class="location-date">Reykjavík, 2022 - 2024</p>
+                <ul class="achievements">
+                    <li>
+                        <span class="lang-en">Developed new features and functionalities for existing Django backend, managed all AWS infrastructure and code repositories, and performed any other technical tasks.</span>
+                        <span class="lang-is" style="display:none;">Þróaði nýja eiginleika og virkni á Django bakenda, sá um öll invði á AWS og git, og sá um önnur tæknitengd verkefni.</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Reviewed and refactored the code base, documented critical processes, and optimized core query execution times by up to 90%.</span>
+                        <span class="lang-is" style="display:none;">Yfirfór og endurritaði þáverandi kóða, skjalaði ferla og kjarnavirkni í bæði innviðum og bakenda, og skar niður vinnslutíma á gagnagrunnsflettingum uppá 90%.</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Performed security reviews of AWS infrastructure, changing processes and use of credentials to better reflect industry best practices.</span>
+                        <span class="lang-is" style="display:none;">Fór yfir öryggisstaðla og ferla á AWS innviðum, og breytti ferlum og notkun á skilríkjum til að endurspegla almenna staðla og venjur.</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Automated common maintenance tasks on the backend and in AWS.</span>
+                        <span class="lang-is" style="display:none;">Sjálfvirkjaði algengar aðgerðir og vesk bæði á bakenda og í AWS.</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Integrated a custom deep neural network AI developed by the Icelandic Institute for Intelligent Machines (IIIM) into our backend systems.</span>
+                        <span class="lang-is" style="display:none;">Innleiddi sérgerða gervigreind sem var þróuð af Vitvélastofnun (IIIS) í bakenda.</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Oversaw development by an offshore team of a new mobile app using our backend, and managed publication to both Apple App Store and Google Play.</span>
+                        <span class="lang-is" style="display:none;">Sá um og stjórnaði erlendu teymi við þróun á símaforriti fyrir lausnina, og sá um útgáfu á bæði Apple App Store og Google Play.</span>
+                    </li>
                 </ul>
-              </div>
-              <div class="details icelandic">
-                <ul>
-                  <li>Þróaði nýja eiginleika og virkni á Django bakenda, sá um öll inviði á AWS og git, og sá um önnur tæknitengd verkefni.</li>
-                  <li>Yfirfór og endurritaði þáverandi kóða, skjalaði ferla og kjarnavirkni í bæði innviðum og bakenda, og skar niður vinnslutíma á gagnagrunnsflettingum uppá 90%.</li>
-                  <li>Fór yfir öryggisstaðla og ferla á AWS innviðum, og breytti ferlum og notkun á skilríkjum til að endurspegla almenna staðla og venjur.</li>
-                  <li>Sjálfvirkjaði algengar aðgerðir og vesk bæði á bakenda og í AWS.</li>
-                  <li>Innleiddi sérgerða gervigreind sem var þróuð af Vitvélastofnun (IIIS) í bakenda.</li>
-                  <li>Sá um og stjórnaði erlendu teymi við þróun á símaforriti fyrir lausnina, og sá um útgáfu á bæði Apple App Store og Google Play.</li>
+            </div>
+
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Software Developer, Málfundafélagið Gleipnir</span>
+                    <span class="lang-is" style="display:none;">Forritari, Málfundafélagið Gleipnir</span>
+                </h3>
+                <p class="location-date">Reykjavík, 2022 - 2024</p>
+                <ul class="achievements">
+                    <li>
+                        <span class="lang-en">Wrote a back-end for an online quiz game using .NET and Azure, and a front-end in REACT.</span>
+                        <span class="lang-is" style="display:none;">Skrifaði bakenda fyrir spurningaleik yfir netið í .NET með innviði á Azure, og framenda í REACT.</span>
+                    </li>
                 </ul>
-              </div>
             </div>
 
-            <div id="job-gleipnir" class="job">
-              <h2 class="jobtitle english">Software Developer, Málfundafélagið Gleipnir</h2>
-              <h2 class="jobtitle icelandic">Forritari, Málfundafélagið Gleipnir</h2>
-              <h3 class="place">Reykjavík, 2022 - 2024</h3>
-              <div class="details english">
-                <ul>
-                  <li>Wrote a back-end for an online quiz game using .NET and Azure, and a front-end in REACT.</li>
-                </ul>
-              </div>
-              <div class="details icelandic">
-                <ul>
-                  <li>Skrifaði bakenda fyrir spurningaleik yfir netið í .NET með innviði á Azure, og framenda í REACT.</li>
-                </ul>
-              </div>
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Field Technician, Origo</span>
+                    <span class="lang-is" style="display:none;">Tæknimaður, Origo</span>
+                </h3>
+                <p class="location-date">Reykjavík, 2017 - 2019</p>
             </div>
 
-            <div id="job-origo" class="job">
-              <h2 class="jobtitle english">Field Technician, Origo</h2>
-              <h2 class="jobtitle icelandic">Tæknimaður, Origo</h2>
-              <h3 class="place">Reykjavík, 2017 - 2019</h3>
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Custodian, Borgarbókasafn Reykjavíkur / Reykjavik City Library</span>
+                    <span class="lang-is" style="display:none;">Húsvörður, Borgarbókasafn Reykjavíkur / Reykjavik City Library</span>
+                </h3>
+                <p class="location-date">Reykjavík, 2015 - 2017</p>
             </div>
 
-            <div id="job-custodian" class="job">
-              <h2 class="jobtitle english">Custodian, Borgarbókasafn Reykjavíkur / Reykjavik City Library</h2>
-              <h2 class="jobtitle icelandic">Húsvörður, Borgarbókasafn Reykjavíkur / Reykjavik City Library</h2>
-              <h3 class="place">Reykjavík, 2015 - 2017</h3>
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Creative Technical Writer, Men &amp; Mice</span>
+                    <span class="lang-is" style="display:none;">Skapandi tækniritari, Men &amp; Mice</span>
+                </h3>
+                <p class="location-date">Kópavogur, 2014 - 2015</p>
             </div>
 
-            <div id="job-technicalwriter" class="job">
-              <h2 class="jobtitle">Creative Technical Writer, Men & Mice</h2>
-              <h3 class="place">Kópavogur, 2014 - 2015</h3>
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Associate System Administrator, CCP Games</span>
+                    <span class="lang-is" style="display:none;">Kerfisstjóri, CCP Games</span>
+                </h3>
+                <p class="location-date">Reykjavík, 2011</p>
             </div>
 
-            <div id="job-ccp-sysadmin" class="job">
-              <h2 class="jobtitle">Associate System Administrator, CCP Games</h2>
-              <h3 class="place">Reykjavík, 2011</h3>
+            <div class="timeline-item">
+                <h3>
+                    <span class="lang-en">Internal System Administrator, Betware Ísland</span>
+                    <span class="lang-is" style="display:none;">Kerfisstjóri, Betware Ísland</span>
+                </h3>
+                <p class="location-date">Kópavogur, 2008 - 2011</p>
             </div>
-
-            <div id="job-betware-sysadmin" class="job">
-              <h2 class="jobtitle">Internal System Administrator, Betware Ísland</h2>
-              <h3 class="place">Kópavogur, 2008 - 2011</h3>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div id="skills" class="section">
-          <div class="left-column">
-            <h1 class="section-title english">Skills</h1>
-            <h1 class="section-title icelandic">Hæfni</h1>
-          </div>
-          <div class="separator"></div>
-          <div class="right-column">
-            <h2 class="jobtitle english">Hugbúnaðarþróun og kerfisstjórn</h2>
-            <h2 class="jobtitle icelandic">Software Development and System Administration</h2>
-            <div class="details">
-              <ul>
-                <li>C# / ASP / .NET</li>
-                <li>Javascript / React</li>
-                <li>Python / Django</li>
-                <li>Databases / PostgreSQL</li>
-                <li>AWS EC2 / EB / Microservices</li>
-              </ul>
-            </div>            
-          </div>
-        </div>
+    <!-- Skills Section -->
+    <section class="section skills">
+        <h2>
+            <span class="lang-en">Skills</span>
+            <span class="lang-is" style="display:none;">Hæfni</span>
+        </h2>
+        <ul>
+            <li>
+                <span class="lang-en">Software Development and System Administration</span>
+                <span class="lang-is" style="display:none;">Hugbúnaðarþróun og kerfisstjórn</span>
+            </li>
+            <li>
+                <span class="lang-en">C# / ASP / .NET</span>
+                <span class="lang-is" style="display:none;">C# / ASP / .NET</span>
+            </li>
+            <li>
+                <span class="lang-en">Javascript / React</span>
+                <span class="lang-is" style="display:none;">Javascript / React</span>
+            </li>
+            <li>
+                <span class="lang-en">Python / Django</span>
+                <span class="lang-is" style="display:none;">Python / Django</span>
+            </li>
+            <li>
+                <span class="lang-en">Databases / PostgreSQL</span>
+                <span class="lang-is" style="display:none;">Gagnagrunnar / PostgreSQL</span>
+            </li>
+            <li>
+                <span class="lang-en">AWS EC2 / EB / Microservices</span>
+                <span class="lang-is" style="display:none;">AWS EC2 / EB / Örþjónustur</span>
+            </li>
+        </ul>
+    </section>
 
-        <div id="training" class="section">
-          <div class="left-column">
-            <h1 class="section-title english">Training</h1>
-            <h1 class="section-title icelandic">Þjálfun</h1>
-          </div>
-          <div class="separator"></div>
-          <div class="right-column">
-            <h2 class="jobtitle english">Programming, Nýi tölvu- og viðskiptaskólinn (NTV)</h2>
-            <h2 class="jobtitle icelandic">Forritun, Nýi tölvu- og viðskiptaskólinn (NTV)</h2>
-            <h3 class="place">Reykjavik, 2021</h3>
-          </div>
-        </div>
+    <!-- Training Section -->
+    <section class="section training">
+        <h2>
+            <span class="lang-en">Training & Education</span>
+            <span class="lang-is" style="display:none;">Þjálfun og Menntun</span>
+        </h2>
+        <ul>
+            <li>
+                <span class="lang-en">Programming, Nýi tölvu- og viðskiptaskólinn (NTV), Reykjavík, 2021</span>
+                <span class="lang-is" style="display:none;">Forritun, Nýi tölvu- og viðskiptaskólinn (NTV), Reykjavík, 2021</span>
+            </li>
+        </ul>
+    </section>
 
-        <div id="references" class="section">
-          <div class="left-column">
-            <h1 class="section-title english">References</h1>
-            <h1 class="section-title icelandic">Meðmæli</h1>
-          </div>
-          <div class="separator"></div>
-          <div class="right-column">
-            <div class="job">
-              <h2 class="jobtitle">Heiðrún Ósk Sigfúsdóttir   +354 694 8850</h2>
-              <h3 class="place">Founder and CEO, Catecut</h3>
-            </div>
-            <div class="job">
-              <h2 class="jobtitle">Barbara Guðnadóttir | +354 411 6130</h2>
-              <h3 class="place english">Library Manager / Deputy City Librarian, Reykjavik City Library</h3>
-              <h3 class="place icelandic">Safnstjóri / Staðgengill borgarbókavarðar, Borgarbókasafnið</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="index.js"></script>
-  </body>
+    <!-- References Section -->
+    <section class="section references">
+        <h2>
+            <span class="lang-en">References</span>
+            <span class="lang-is" style="display:none;">Meðmæli</span>
+        </h2>
+        <ul>
+            <li>
+                <strong>
+                    <span class="lang-en">Heiðrún Ósk Sigfúsdóttir</span>
+                    <span class="lang-is" style="display:none;">Heiðrún Ósk Sigfúsdóttir</span>
+                </strong>
+                <span class="lang-en"><br />Founder and CEO, Catecut<br /></span>
+                <span class="lang-is" style="display:none;"><br />Stofnandi og forstjóri, Catecut<br /></span>
+                <span>+354 694 8850</span>
+            </li>
+            <li>
+                <strong>
+                    <span class="lang-en">Barbara Guðnadóttir</span>
+                    <span class="lang-is" style="display:none;">Barbara Guðnadóttir</span>
+                </strong>
+                <span class="lang-en"><br />Library Manager / Deputy City Librarian, Reykjavik City Library<br /></span>
+                <span class="lang-is" style="display:none;"><br />Safnstjóri / Staðgengill borgarbókavarðar, Borgarbókasafnið<br /></span>
+                <span>+354 411 6130</span>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<script src="index.js"></script>
+</body>
 </html>
