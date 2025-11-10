@@ -101,11 +101,11 @@ a {
 }
 
 .cv-title {
-    margin: 25.4px 25.4px 0 25.4px;
+    margin: 25.4px 50.8px 0 25.4px;
 }
 
 .section {
-    margin: 0 25.4px 0 25.4px;
+    margin: 0 50.8px 0 25.4px;
     display: flex;
     margin-top:1rem;
 }
